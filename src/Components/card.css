@@ -1,0 +1,54 @@
+
+.cardContainer0{
+    /* z-index: 9?; */
+    margin: 10px;
+    width: fit-content;
+    border-radius: 16px;
+    border: 2px solid transparent;
+
+}
+.cardContainer0:hover{
+    cursor: pointer;
+    transition: 2s;
+    border: 2px solid rgb(27, 211, 236);
+    scale: 1.1;
+}
+.cardContainer{
+    border-radius: 15px;
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: cadetblue;
+}
+
+.pImg{
+    width: 200px;
+    height: 250px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.pCat{
+    padding: 15px 0 0 15px;
+    color: rgba(92, 92, 92, 0.76);
+    font-size: large;
+    font-variant: small-caps;
+    letter-spacing: .8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+}
+
+.pName{
+    padding: 0 0 0 15px;
+    font-weight: 500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* padding: 5px;
+    padding: 15px; */
+}
+
+.pPrice{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 0 0 15px 15px;
+
+}

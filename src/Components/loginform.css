@@ -1,0 +1,42 @@
+.formContainer{
+    /* justify-content: center  ; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.emaillable{
+    position: relative;
+    top: 30px;
+    left: 4px;
+    background-color: white;
+    margin-left: 10px;
+    padding: 0 0 0 4px;
+    color: darkgray;
+    transition: .5s;
+    border-radius: 20px;
+    letter-spacing: 2px;
+}
+
+.emailInput, .passInput{
+    letter-spacing: 2px;
+    width: 250px  ;
+    height: 30px;
+    margin: 5px;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+    outline-style:hidden;
+    border: 1px solid rgb(170, 216, 218);
+}
+
+.emailInput:focus, .passInput:focus{
+    outline-color: rgba(65, 206, 224, 0.938);
+    border: none;
+}
+.emailWarr{
+    font-size: 12px;
+    padding-left: 20px;
+    color: rgb(255, 0, 0);
+    
+}
