@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "./Button";
+import Button from "../Button/Button";
 import "./loginform.css";
-import { hideIc } from "./svg";
+import { hideIc } from "../svg";
 
 const LoginForm = (props) => {
   const [inputs, setinputs] = useState({ email: "", password: "" });

@@ -1,5 +1,6 @@
 .formContainer{
     /* justify-content: center  ; */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -20,7 +21,9 @@
 
 .emailInput, .passInput{
     letter-spacing: 2px;
-    width: 250px  ;
+    width: 280px;
+    max-width: 50vw  ;
+    min-width: 250px;
     height: 30px;
     margin: 5px;
     text-align: left;

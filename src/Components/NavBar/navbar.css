@@ -4,17 +4,18 @@
   width: 100vw;
   display: grid;
   position: fixed;
+  padding-right: 10px;
   align-items: center;
   justify-items: space-around;
   grid-template-columns: 1fr 8fr 0.5fr 0.5fr;
   background-color: rgba(45, 119, 119, 0.979);
-  padding-right: 10px;
 }
 
 .nav {
   height: 5px;
   width: 70vw;
   display: flex;
+  transition: 1s;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -34,16 +35,16 @@
 }
 
 .navLink:hover {
-  background-color: rgba(0, 0, 0, 0.911);
   transition: 0.8s;
+  background-color: rgba(0, 0, 0, 0.911);
 }
 
 .navLink > span {
-  font-family: fantasy;
   display: flex;
-  align-items: center;
   color: black;
   font-size: 25px;
+  align-items: center;
+  font-family: fantasy;
   font-family: monospace;
 }
 
@@ -54,46 +55,45 @@
 @media screen and (max-width: 765px) {
   .navBar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
-  
+
   .nav {
     display: none;
   }
 
   .navLink {
-    width: 29vw;
+    width: 28vw;
   }
-  
+
   .resNavSide {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
     top: 60px;
     width: 30vw;
     height: 70vh;
-    background-color: rgba(0, 0, 0, 0.911);
+    display: flex;
     color: black;
+    position: absolute;
     border-radius: 15px;
+    flex-direction: column;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.911);
   }
-  
+
   .more {
-    display: block;
     width: 40px;
-    height: 40px;
-    border-radius: 20px;
     border: none;
+    height: 40px;
+    display: block;
+    border-radius: 20px;
     background-color: transparent;
   }
 
   .more:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.726);
     transition: 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.726);
   }
-  
 }

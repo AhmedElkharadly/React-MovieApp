@@ -1,17 +1,18 @@
 import React from "react";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import NavBar from "./Components/NavBar";
-import Card from "./Components/Card";
-import Button from "./Components/Button";
-import LoginForm from "./Components/LoginForm";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./Components/NavBar/NavBar";
 import Products from "./Pages/Products";
+import Login from './Pages/LoginPage'
 import "./App.css";
+import Card from "./Components/Card/Card";
+import Button from "./Components/Button/Button";
+import LoginForm from "./Components/LoginForm/LoginForm";
 import { homeic, exploreic, notificationic, profileic, moreic } from "../src/Components/svg";
 
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       navArr: [
         {
@@ -67,10 +68,11 @@ class App extends React.Component {
             }}
           >
             <Routes>
-              <Route path="/home"    element={<div>This Is THe Home</div>} />
+              <Route path="/home" exact element={<div>This Is THe Home</div>} />
               <Route path="/products" element={<Products />} />
               <Route path="/about" element={<div>This Is THe About</div>} />
               <Route path="/profile" element={<div>Profile</div>} />
+              <Route path="/login" element={<Login/>} />
             </Routes>
           </div>
         </div>
