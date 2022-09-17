@@ -2,7 +2,7 @@
 .cardContainer0{
     /* z-index: 9?; */
     margin: 10px;
-    width: fit-content;
+    width: 204px;
     border-radius: 16px;
     border: 2px solid transparent;
 
@@ -10,16 +10,17 @@
 .cardContainer0:hover{
     cursor: pointer;
     transition: 2s;
-    border: 2px solid rgb(27, 211, 236);
+    border: 2px solid rgb(255, 166, 0);
     scale: 1.1;
 }
 .cardContainer{
     border-radius: 15px;
     display: flex;
     width: fit-content;
+    height: 350px;
     flex-direction: column;
-    align-items: flex-start;
-    background-color: cadetblue;
+    align-items: center;
+    background-color: rgba(161, 161, 160, 0.658);
 }
 
 .pImg{
@@ -40,15 +41,17 @@
 }
 
 .pName{
-    padding: 0 0 0 15px;
-    font-weight: 500;
+    padding:5px;
+    font-weight: 700;
+    font-size: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* padding: 5px;
     padding: 15px; */
 }
 
 .pPrice{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    padding: 0 0 15px 15px;
+    /* font-family:Georgia, 'Times New Roman', Times, serif; */
+    padding:  15px;
+    font-size: 10px;
 
 }

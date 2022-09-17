@@ -2,35 +2,23 @@ import "./navbar.css";
 import React from "react";
 import { moreic } from "../svg";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
+
 
 function NavBar(props) {
   const [myRef, setMyRef] = useState(React.createRef());
   
-//   const histo = () => {
-//   let history = useHistory();
-
-//   console.log(history)
-// }
-  const to = (e) => {
-    // window.history.push({
-    //   pathname:  "/login",
-    //   state: {
-    //     response: "messageFromServer" 
-    //    } })
-  };
-
   const myFunction = (e) => {
     myRef.current.className === "nav"
-    ? (myRef.current.className += " resNavSide")
-    : (myRef.current.className = "nav");
+      ? (myRef.current.className += " resNavSide")
+      : (myRef.current.className = "nav");
     console.log(myRef.current.style.transition);
   };
-  const blur = (e) => {
-    myRef.current.className = "nav";
-  };
+
+  // const blur = (e) => {
+  //   myRef.current.className = "nav";
+  // };
 
   return (
     <div
@@ -51,7 +39,11 @@ function NavBar(props) {
           borderRadius: props.logoBR,
         }}
       />
-      <div className="nav" ref={myRef} onBlur={blur}>
+      <div
+        className="nav"
+        ref={myRef}
+        // onBlur={blur()}
+      >
         {/* {console.log(props.navArr)} */}
         {props.navArr?.map((navObj, index) => {
           return (
@@ -59,7 +51,9 @@ function NavBar(props) {
               key={index}
               style={({ isActive }) => ({
                 color: isActive ? "transparent" : "transparent",
-                background: isActive ? "rgba(0, 0, 0, 0.911)" : "transparent",
+                background: isActive
+                  ? "rgba(114, 113, 113, 0.4)"
+                  : "none",
               })}
               className="navLink"
               to={navObj.navRoute}
@@ -77,14 +71,15 @@ function NavBar(props) {
         })}
       </div>
       <NavLink to="/login">
-      <Button
-        name="LogIn"
-        bgColor="rgba(0, 0, 0, 0.111)"
-        color="White"
-        h="38px"
-        w="90px"
-        HBC={() => console.log("Passed to NavLink")}
-      /></NavLink>
+        <Button
+          name="LogIn"
+          bgColor="rgba(0, 0, 0, 0.111)"
+          color="White"
+          h="38px"
+          w="90px"
+          HBC={() => console.log("Passed to NavLink")}
+        />
+      </NavLink>
       <button
         className="more"
         style={{

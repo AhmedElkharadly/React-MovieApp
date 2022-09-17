@@ -1,0 +1,19 @@
+.moviePageContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgba(0, 0, 0, 0.89);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(87, 64, 52, 0.822);
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(44, 29, 0, 0.966);
+}

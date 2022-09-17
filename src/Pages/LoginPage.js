@@ -3,12 +3,12 @@ import LoginForm from "../Components/LoginForm/LoginForm";
 const Login = (props) => {
     return(
     <div style={{
-        width: "100vw",
+        width: "100%",
         height:"50vh",
         display: "flex",
         justifyContent: "center",
         alignItems:"center"
-    }}>
+            }}>
         <LoginForm/>
     </div>)
 

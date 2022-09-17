@@ -1,16 +1,12 @@
-import React from "react";
+import React, { Component} from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
-import Products from "./Pages/Products";
+import Movies from "./Pages/Movies";
 import Login from './Pages/LoginPage'
 import "./App.css";
-import Card from "./Components/Card/Card";
-import Button from "./Components/Button/Button";
-import LoginForm from "./Components/LoginForm/LoginForm";
-import { homeic, exploreic, notificationic, profileic, moreic } from "../src/Components/svg";
 
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,28 +17,24 @@ class App extends React.Component {
           icon: "homeic",
         },
         {
-          navRoute: "/about",
-          navName: "About",
-          icon: "aboutIc",
+          navRoute: "/movies",
+          navName: "Movies",
+          icon: "moviesIc",
         },
         {
-          navRoute: "/products",
-          navName: "Products",
-          icon: "productsIc",
-        },
-        {
-          navRoute: "/profile",
-          navName: "Profile",
-          icon: "profileic",
-        },
+          navRoute: "/favorite",
+          navName: "Favorite",
+          icon: "favic",
+        }
       ],
     };
   }
   HbtnClick = () => {
-    console.log("BTN Function");
+    console.log(this.props);
   };
 
   render() {
+    // {console.log(this)}
     return (
       <>
         <NavBar
@@ -56,25 +48,16 @@ class App extends React.Component {
           navColor="white"
           logoBR="50px"
           navFSize="22px"
-        />
+          />
         <div className="App">
-          <div style={{ display: "flex", justifyContent: "center" }}></div>
-          <div
-            style={{
-              padding: "10px",
-              display: "flex",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-            }}
-          >
-            <Routes>
-              <Route path="/home" exact element={<div>This Is THe Home</div>} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/about" element={<div>This Is THe About</div>} />
-              <Route path="/profile" element={<div>Profile</div>} />
+              <Routes>
+              <Route path="/" exact element={<div> Home</div>} />
+              <Route path="/home" element={<div> Home</div>} />
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/favorite" element={<div>Fav</div>} />
               <Route path="/login" element={<Login/>} />
+              <Route path="*" element={<h1>Error 404 Not Found</h1>} />
             </Routes>
-          </div>
         </div>
       </>
     );

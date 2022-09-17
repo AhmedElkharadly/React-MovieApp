@@ -16,7 +16,14 @@
 .rcButton:hover{
     /* border: .01px solid rgba(0, 0, 0, 0.616); */
     color: white;
-    background-color: rgba(0, 0, 0, 0.849)!important;
+    background-color: rgba(0, 0, 0, 0.849);
     cursor: pointer;
     transition: .3s ;
+}
+
+.favic{
+    display: flex;
+}
+.favicF{
+    fill: red;
 }

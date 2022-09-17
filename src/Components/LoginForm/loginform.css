@@ -3,16 +3,18 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    transition: 1s linear;
+
 }
 
 .emaillable{
     position: relative;
     top: 30px;
-    left: 4px;
+    /* left: 4px; */
     background-color: white;
-    margin-left: 10px;
-    padding: 0 0 0 4px;
+    /* margin-left: 10px; */
+    /* padding: 0 0 0 4px; */
     color: darkgray;
     transition: .5s;
     border-radius: 20px;
@@ -30,16 +32,26 @@
     padding: 5px;
     border-radius: 5px;
     outline-style:hidden;
-    border: 1px solid rgb(170, 216, 218);
+    border: 1px solid rgba(73, 35, 0, 0.295);
 }
 
 .emailInput:focus, .passInput:focus{
-    outline-color: rgba(65, 206, 224, 0.938);
+    outline-color: rgba(243, 163, 16, 0.938);
     border: none;
 }
 .emailWarr{
     font-size: 12px;
     padding-left: 20px;
-    color: rgb(255, 0, 0);
+    color: rgb(228, 27, 0)
+    
+}
+
+@media screen and (max-width: 765px) {
+    .formContainer{
+    transition: 1s linear;
+    scale: .9;
+    }
+
+    
     
 }

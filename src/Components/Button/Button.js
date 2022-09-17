@@ -15,7 +15,7 @@ function Button(props) {
         padding: props.pad
       }}
       type={props.type}
-      onClick={() => {props.HBC()}}
+      onClick={(e) => {props.HBC()}}
     >
       {props.name}
     </button>
