@@ -12,6 +12,9 @@
     font-weight: 700;
     letter-spacing: .5px;
     margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .rcButton:hover{
     /* border: .01px solid rgba(0, 0, 0, 0.616); */

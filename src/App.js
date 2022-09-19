@@ -1,10 +1,12 @@
 import React, { Component} from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
-import Movies from "./Pages/Movies";
+import Movies from "./Pages/MoviesPage/Movies";
 import Login from './Pages/LoginPage'
 import "./App.css";
-
+import CardDetails from "./Components/CardDetails/CardDetails";
+import Home from "./Pages/Home/Home";
+import Profile from "./Pages/Profile/Profile";
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +24,8 @@ class App extends Component {
           icon: "moviesIc",
         },
         {
-          navRoute: "/favorite",
-          navName: "Favorite",
+          navRoute: "/profile",
+          navName: "profile",
           icon: "favic",
         }
       ],
@@ -34,7 +36,6 @@ class App extends Component {
   };
 
   render() {
-    // {console.log(this)}
     return (
       <>
         <NavBar
@@ -51,11 +52,12 @@ class App extends Component {
           />
         <div className="App">
               <Routes>
-              <Route path="/" exact element={<div> Home</div>} />
-              <Route path="/home" element={<div> Home</div>} />
-              <Route path="/movies" element={<Movies />} />
-              <Route path="/favorite" element={<div>Fav</div>} />
-              <Route path="/login" element={<Login/>} />
+              <Route exact path="/"  element={<Home/>} />
+              <Route exact path="/home" element={<Home/>} />
+              <Route exact path="/movies"  element={<Movies />} />
+              <Route exact path="/movies/:id"  element={<CardDetails />} />
+              <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/login" element={<Login/>} />
               <Route path="*" element={<h1>Error 404 Not Found</h1>} />
             </Routes>
         </div>

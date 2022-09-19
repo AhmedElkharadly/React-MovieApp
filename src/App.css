@@ -7,12 +7,19 @@
 } */
 .App{
   /* margin-top: 0; */
-  margin: 100px;
+  /* margin: 80px;
   margin-right: 1px;
   margin-left: 1px;
   padding: 0 50px;
-  border-radius: 30px;
+  border-radius: 30px; */
+    /* width: 99vw; */
+    /* height: 100vh; */
+    background-image: url("../public/home.jpg") ;
+    background-size: cover;
+    background-attachment: fixed;
+
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

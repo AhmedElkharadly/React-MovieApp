@@ -1,11 +1,34 @@
 import Button from "../Button/Button";
 import { favIc } from ".././svg";
 import "./card.css";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Card(props) {
+  const [favor, setFavor] = useState(false);
+  const navigate = useNavigate();
+
   const handleFav = (e) => {
-      console.log(e.target.style.fill);
+    setFavor((prevState) => ({
+      favor: !prevState.favor,
+    }));
+
+    if (!favor.favor) {
+      e.target.style.fill = "red";
+      e.target.style.color = "red";
+    } else {
+      e.target.style.fill = "black";
+      e.target.style.color = "black";
+    }
+
+    console.log(e.target.style.fill);
   };
+
+  const roteToID = () => {
+    navigate(`/movies/${props.id}`);
+  };
+
+ 
 
   return (
     <div className="cardContainer0">
@@ -16,25 +39,28 @@ function Card(props) {
         }}
       >
         <img
+          onClick={roteToID}
           className="pImg"
+          alt={props.name}
           src={props.imgSrc}
-          alt="Product Picture"
           style={{
             width: props.pImgw,
             height: props.pImgh,
           }}
         />
-
-        <h3 className="pName">{props.pName}</h3>
-        {/* <h3 className="pCat">{props.pCategory}</h3> */}
-        {/* {console.log(props.imgSrc) <Rating />} */}
-        <Button
-          HBC={handleFav}
-          w="fit-content"
-          name={favIc}
-          bgColor="transparent"
-        />
-        {/* <h3 className="pPrice">{props.pPrice}</h3> */}
+        <div className="cardFooter">
+          <h3 className="pName">{props.pName}</h3>
+          <Button
+            HBC={() => handleFav}
+            w="fit-content"
+            fSize="12px"
+            h="10px"
+            pad="20px"
+            name="Add to Favorites"
+            icon={favIc}
+            bgColor="rgba(80, 90, 8, 0.2)"
+          />
+        </div>
       </div>
     </div>
   );

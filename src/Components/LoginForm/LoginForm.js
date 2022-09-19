@@ -68,7 +68,7 @@ const LoginForm = (props) => {
           className="emaillable"
           style={
             l1hoverd
-              ? { top: "12px", fontSize: "14px" }
+              ? { top: "6px", fontSize: "14px" }
               : { top: "30px", fontSize: "15px" }
           }
         >
@@ -93,7 +93,7 @@ const LoginForm = (props) => {
           className="emaillable"
           style={
             l2hoverd
-              ? { top: "12px", fontSize: "14px" }
+              ? { top: "6px", fontSize: "14px" }
               : { top: "30px", fontSize: "15px" }
           }
         >

@@ -4,7 +4,7 @@ const Login = (props) => {
     return(
     <div style={{
         width: "100%",
-        height:"50vh",
+        height:"100vh",
         display: "flex",
         justifyContent: "center",
         alignItems:"center"

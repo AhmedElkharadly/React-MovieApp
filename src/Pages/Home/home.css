@@ -1,0 +1,29 @@
+.homeContainer{
+    height: 100vh;
+    /* width: 100vw; */
+    padding: 100px;
+    font-size: xx-large;
+}
+
+.homeContainer>h1{
+    padding: 80px;
+    color: rgba(255, 255, 255, 0.932);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family:cursive;
+    letter-spacing: 10px;
+}
+
+@media screen and (max-width: 765px) {
+    .homeContainer>h1{
+        /* padding: 10; */
+    }
+    .homeContainer{
+        height: fit-content;
+        /* width: 100vw; */
+        padding: 50px;
+        font-size: xx-large;
+    }
+}
