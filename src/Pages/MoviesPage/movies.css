@@ -1,5 +1,8 @@
 
-.moviePageContainer {
+.moviePageContainer{
+  padding-bottom: 30px;
+} 
+.movieContainer{
   /* margin: 80px; */
   /* margin-right: 1px;
   margin-left: 1px; */
@@ -11,7 +14,10 @@
   align-items: center;
   justify-content: center;
 }
-
+.pagination{
+  display: flex;
+  justify-content: space-evenly;
+}
 ::-webkit-scrollbar {
   width: 1.09vw;
 }

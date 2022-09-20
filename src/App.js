@@ -41,10 +41,10 @@ class App extends Component {
         <NavBar
           navArr={this.state.navArr}
           imgSrc="1.JPG"
-          imgw="50px"
+          imgw="70px"
           imgh="50px"
           margin="5px"
-          mLeft="20px"
+          mLeft="5px"
           navBgColor="rgba(0, 0, 0, 0.89)"
           navColor="white"
           logoBR="50px"

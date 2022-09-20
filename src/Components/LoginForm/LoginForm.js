@@ -117,9 +117,9 @@ const LoginForm = (props) => {
           w="250px"
           name="Login"
           color="white"
-          type=""
+          // type=""
           HBC={validate}
-          bgColor="black"
+          // bgColor="black"
         />
       </div>
     </form>

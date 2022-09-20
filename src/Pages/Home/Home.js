@@ -7,7 +7,7 @@ const Home = () => {
     <div className='homeContainer'>
       <h1>
         Here You Can Find Your Favorite 
-        <Link to="/movies">
+        <Link className='homelink' to="/movies">
         Movies
         </Link>
         </h1>

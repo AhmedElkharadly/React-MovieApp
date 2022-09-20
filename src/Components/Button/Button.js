@@ -5,7 +5,7 @@ function Button(props) {
     <button
       className="rcButton"
       style={{
-        backgroundColor: props.bgColor,
+        background: props.bgColor,
         color: props.color,
         borderRadius: props.br,
         width: props.w,

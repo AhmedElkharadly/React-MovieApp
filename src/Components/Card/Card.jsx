@@ -47,7 +47,10 @@ function Card(props) {
             width: props.pImgw,
             height: props.pImgh,
           }}
-        />
+          />
+          <div className="rate">
+            {props.rate}
+          </div>
         <div className="cardFooter">
           <h3 className="pName">{props.pName}</h3>
           <Button
@@ -58,7 +61,7 @@ function Card(props) {
             pad="20px"
             name="Add to Favorites"
             icon={favIc}
-            bgColor="rgba(80, 90, 8, 0.2)"
+            bgColor="rgba(255, 255, 255, 0.496)"
           />
         </div>
       </div>

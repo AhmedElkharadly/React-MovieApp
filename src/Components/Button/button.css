@@ -2,7 +2,7 @@
 
 .rcButton{
     color: black;
-    background-color: rgb(83, 83, 121);
+    background-color: rgb(199, 169, 112, .8);
     width: 200px;
     height: 50px;
     border-radius: 10px;
@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 .rcButton:hover{
     /* border: .01px solid rgba(0, 0, 0, 0.616); */

@@ -4,21 +4,40 @@ import { moreic } from "../svg";
 import { useState } from "react";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
-
+import { store } from "../../store/store";
+import { useSelector, useDispatch } from "react-redux";
+import { setLang } from "../../store/actions/language";
 
 function NavBar(props) {
   const [myRef, setMyRef] = useState(React.createRef());
-  
+  const [myDropRef, setMyDropRef] = useState(React.createRef());
+
   const myFunction = (e) => {
     myRef.current.className === "nav"
-      ? (myRef.current.className += " resNavSide")
+      ? (myRef.current.className += " resNavSide" )
       : (myRef.current.className = "nav");
-    console.log(myRef.current.style.transition);
+    // console.log(myRef.current.className);
   };
 
-  // const blur = (e) => {
-  //   myRef.current.className = "nav";
-  // };
+  const lang = useSelector((state) => {
+    return state.language.currentLang;
+  });
+  const dispatch = useDispatch();
+  const changeToEN = () => {
+    dispatch(setLang("en"));
+  };
+  const changeToAR = () => {
+    dispatch(setLang("ar"));
+  };
+  const changeToFR = () => {
+    dispatch(setLang("fr"));
+  };
+
+  const dorpDownLang = (e) => {
+    myDropRef.current.className === "avilableLang"
+      ? (myDropRef.current.className += " displayed")
+      : (myDropRef.current.className = "avilableLang");
+  };
 
   return (
     <div
@@ -26,6 +45,7 @@ function NavBar(props) {
       style={{
         backgroundColor: props.navBgColor,
       }}
+      dir={lang == "ar" ? "rtl" : "ltr" }
     >
       <img
         src={props.imgSrc}
@@ -39,21 +59,14 @@ function NavBar(props) {
           borderRadius: props.logoBR,
         }}
       />
-      <div
-        className="nav"
-        ref={myRef}
-        // onBlur={blur()}
-      >
-        {/* {console.log(props.navArr)} */}
+      <div className="nav" ref={myRef}>
         {props.navArr?.map((navObj, index) => {
           return (
             <NavLink
               key={index}
               style={({ isActive }) => ({
                 color: isActive ? "transparent" : "transparent",
-                background: isActive
-                  ? "rgba(114, 113, 113, 0.4)"
-                  : "none",
+                background: isActive ? "rgba(114, 113, 113, 0.4)" : "none",
               })}
               className="navLink"
               to={navObj.navRoute}
@@ -70,16 +83,34 @@ function NavBar(props) {
           );
         })}
       </div>
-      <NavLink to="/login">
+      <NavLink style={{ textDecoration: "none" }} to="/login">
         <Button
-          name="LogIn"
-          bgColor="rgba(0, 0, 0, 0.111)"
-          color="White"
-          h="38px"
           w="90px"
-          HBC={() => console.log("Passed to NavLink")}
+          h="38px"
+          name="LogIn"
+          color="White"
+          fFamily="cursive"
+          // bgColor= "rgba(255, 255, 255, 0.06)"
+          HBC={() => () => console.log("Login Button!")}
         />
       </NavLink>
+      <div className="lang">
+        <Button
+          w="90px"
+          h="30px"
+          fSize="13px"
+          color="white"
+          fFamily="cursive"
+          bgColor="transparent"
+          name={`Lang: ${lang}`}
+          HBC={() => dorpDownLang}
+        />
+        <ul ref={myDropRef} className="avilableLang">
+          <li onClick={() => changeToEN()}>en</li>
+          <li onClick={() => changeToAR()}>ar</li>
+          <li onClick={() => changeToFR()}>fr</li>
+        </ul>
+      </div>
       <button
         className="more"
         style={{
