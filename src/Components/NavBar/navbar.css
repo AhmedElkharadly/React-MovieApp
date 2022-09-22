@@ -163,3 +163,12 @@
     background-color: rgba(0, 0, 0, 0.726);
   }
 }
+@media screen and (max-width: 385px) {
+  .more{
+    margin: 0;
+  }
+  .lang{
+    display: none;
+  }
+
+}

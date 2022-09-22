@@ -5,7 +5,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import Button from "../Button/Button";
 import { favIc } from "../svg";
+import {Link} from 'react-router-dom'
 import "./cardDetails.css";
+import {useSelector} from 'react-redux'
 
 const CardDetails = () => {
   const [movie, setMovie] = useState({});
@@ -14,10 +16,12 @@ const CardDetails = () => {
   const navigate = useNavigate();
   const id = params.id;
 
+const lang = useSelector((state) => state.pages.currentLangName)
+
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=40b9cd171d9532635ec61365b799928f`
+        `https://api.themoviedb.org/3/movie/${id}&language=${lang}?api_key=40b9cd171d9532635ec61365b799928f`
       )
       .then((response) => {
         setMovie(response.data);
@@ -48,7 +52,9 @@ const CardDetails = () => {
   };
 
   return (
-    <div className="cardDetailsContainer">
+    <div 
+    dir={lang == "ar"? "rtl" : "ltr"}
+    className="cardDetailsContainer">
       <div className="cardDetailstextContainer">
         <span className="CardDetailsFavIc" onClick={favAdding}>
           {favIc}
@@ -68,6 +74,9 @@ const CardDetails = () => {
           <b>Language:</b>{" "}
           {movie.original_language == "en" ? "English" : "Forign"}
         </p>
+        <a className="moviePage" target="blank"  href={movie.homepage}>
+        To The Movie
+        </a>
       </div>
       <div className="sideImgeContainer">
         <img

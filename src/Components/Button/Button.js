@@ -1,8 +1,14 @@
 import "./button.css";
+import React, { useState } from "react";
+import {useRef} from 'react';
+function Button(props,refrence) {
+  // const [refr ,setRefr] = useState(React.createRef());
+  // const [passingRef ,setPassingRefr] = useState(React.createRef());
+  // props.passingRef =()=> ({refr})
 
-function Button(props) {
   return (
     <button
+      // ref={refr}
       className="rcButton"
       style={{
         background: props.bgColor,
@@ -12,12 +18,12 @@ function Button(props) {
         height: props.h,
         fontSize: props.fSize,
         fontFamily: props.fFamily,
-        padding: props.pad
+        padding: props.pad,
       }}
       type={props.type}
-      onClick={props.HBC()}
+      onClick={props.HBC}
     >
-      {props.name} 
+      {props.name}
       {props.icon}
     </button>
   );

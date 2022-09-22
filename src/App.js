@@ -1,45 +1,21 @@
-import React, { Component} from "react";
-import { Route, Routes } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar";
-import Movies from "./Pages/MoviesPage/Movies";
-import Login from './Pages/LoginPage'
 import "./App.css";
-import CardDetails from "./Components/CardDetails/CardDetails";
 import Home from "./Pages/Home/Home";
+import Login from './Pages/LoginPage'
+import React, { Component} from "react";
 import Profile from "./Pages/Profile/Profile";
+import Movies from "./Pages/MoviesPage/Movies";
+import NavBar from "./Components/NavBar/NavBar";
+import { Route, Routes } from "react-router-dom";
+import CardDetails from "./Components/CardDetails/CardDetails";
+import {connect} from 'react-redux'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navArr: [
-        {
-          navRoute: "/home",
-          navName: "Home",
-          icon: "homeic",
-        },
-        {
-          navRoute: "/movies",
-          navName: "Movies",
-          icon: "moviesIc",
-        },
-        {
-          navRoute: "/profile",
-          navName: "profile",
-          icon: "favic",
-        }
-      ],
-    };
-  }
-  HbtnClick = () => {
-    console.log(this.props);
-  };
-
   render() {
+    // console.log(this.props);
     return (
       <>
         <NavBar
-          navArr={this.state.navArr}
+          navArr={this.props.navArr}
           imgSrc="1.JPG"
           imgw="70px"
           imgh="50px"
@@ -52,12 +28,12 @@ class App extends Component {
           />
         <div className="App">
               <Routes>
-              <Route exact path="/"  element={<Home/>} />
-              <Route exact path="/home" element={<Home/>} />
-              <Route exact path="/movies"  element={<Movies />} />
-              <Route exact path="/movies/:id"  element={<CardDetails />} />
-              <Route exact path="/profile" element={<Profile />} />
-              <Route exact path="/login" element={<Login/>} />
+              <Route path="/"  element={<Home/>} />
+              <Route path="/home" element={<Home/>} />
+              <Route path="/movies"  element={<Movies />} />
+              <Route path="/movies/:id"  element={<CardDetails />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/login" element={<Login/>} />
               <Route path="*" element={<h1>Error 404 Not Found</h1>} />
             </Routes>
         </div>
@@ -66,28 +42,11 @@ class App extends Component {
   }
 }
 
-export default App;
-
-{
-  /* <LoginForm />
-<Button 
-name="LogIn" 
-  color="black" 
-  HBC={this.HbtnClick} 
-/>
-<Button
-name="SignUp"
-color="White"
-  bgColor="Black"
-  HBC={() => {
-    console.log("Put Here The Function");
-  }}
-  <Card
-    imgSrc="1.jpg"
-    pBgColor="lightgray"
-    pCategory="Shose Category"
-    pName="Marsilia"
-    pPrice="50$"
-  />
-/> */
+const mapStoreToProps = (state) => {
+  return{
+    navArr : state.navBar.navArr
+  }
 }
+
+export default connect(mapStoreToProps)(App);
+

@@ -4,4 +4,15 @@ export const addFavorites = (payload) => {
       payload,
     };
   };
-  
+export const splcieFavorites = (payload) => {
+    return {
+      type: "SPLICE_FAVORITES",
+      payload,
+    };
+  };
+export const setCounter = (payload) =>{
+    return {
+        type:"SET_COUNTER",
+        payload
+    }
+}

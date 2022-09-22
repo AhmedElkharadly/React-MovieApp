@@ -1,28 +1,38 @@
-import { useState } from "react";
 import "./movies.css";
-import axios from "axios";
+// import axios from "axios";
+import { useState } from "react";
 import { useEffect } from "react";
 import Card from "../../Components/Card/Card";
 import Button from "../../Components/Button/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { getMovies } from "../../store/actions/movies";
+import { splcieFavorites, addFavorites } from "../../store/actions/favorites";
 
 const Movies = (props) => {
-  const [movie, setMovies] = useState([]);
+  // const [movie, setMovies] = useState([]);
+  // const [lang, setlang] = useState("ar");
   const [pageNum, setPageNum] = useState(1);
+  const movies = useSelector((state) => state.pages.currentLang.results);
+  const lang = useSelector((state) => state.pages.currentLangName);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=40b9cd171d9532635ec61365b799928f&page=${pageNum}`
-      )
-      .then((response) => {
-        setMovies(response.data.results);
-        // console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error)
-        
-      });
-  }, [pageNum]);
+    // ------- Using Axios Direct ------------
+    //  axios
+    //   .get(
+    //     `https://api.themoviedb.org/3/movie/popular?api_key=40b9cd171d9532635ec61365b799928f&page=${pageNum}`
+    //   )
+    //   .then((response) => {s
+    //     setMovies(response.data.results);
+    //     // console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error)
+    //   });
+
+    // ------- Using Axios With Redux ------------
+    dispatch(getMovies(pageNum, lang));
+  }, [pageNum, lang]);
 
   const previousPage = () => {
     pageNum > 2 ? setPageNum(pageNum - 1) : setPageNum(1);
@@ -32,11 +42,13 @@ const Movies = (props) => {
   };
 
   return (
-    <div className="moviePageContainer">
+    <div dir={lang == "ar" ? "rtl" : "ltr"} className="moviePageContainer">
       <div className="movieContainer">
-        {movie.map((mov) => {
+        {movies?.map((mov) => {
           return (
             <Card
+              HBCC={" "}
+              moviesData={mov}
               id={mov.id}
               key={mov.id}
               pName={mov.title}

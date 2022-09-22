@@ -4,9 +4,8 @@ import { moreic } from "../svg";
 import { useState } from "react";
 import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
-import { store } from "../../store/store";
 import { useSelector, useDispatch } from "react-redux";
-import { setLang } from "../../store/actions/language";
+import { setCurrentLangName } from "../../store/actions/language";
 
 function NavBar(props) {
   const [myRef, setMyRef] = useState(React.createRef());
@@ -14,23 +13,21 @@ function NavBar(props) {
 
   const myFunction = (e) => {
     myRef.current.className === "nav"
-      ? (myRef.current.className += " resNavSide" )
+      ? (myRef.current.className += " resNavSide")
       : (myRef.current.className = "nav");
     // console.log(myRef.current.className);
   };
 
   const lang = useSelector((state) => {
-    return state.language.currentLang;
+    return state.pages.currentLangName;
   });
   const dispatch = useDispatch();
+
   const changeToEN = () => {
-    dispatch(setLang("en"));
+    dispatch(setCurrentLangName("en"));
   };
   const changeToAR = () => {
-    dispatch(setLang("ar"));
-  };
-  const changeToFR = () => {
-    dispatch(setLang("fr"));
+    dispatch(setCurrentLangName("ar"));
   };
 
   const dorpDownLang = (e) => {
@@ -45,7 +42,7 @@ function NavBar(props) {
       style={{
         backgroundColor: props.navBgColor,
       }}
-      dir={lang == "ar" ? "rtl" : "ltr" }
+      dir={lang == "ar" ? "rtl" : "ltr"}
     >
       <img
         src={props.imgSrc}
@@ -108,7 +105,6 @@ function NavBar(props) {
         <ul ref={myDropRef} className="avilableLang">
           <li onClick={() => changeToEN()}>en</li>
           <li onClick={() => changeToAR()}>ar</li>
-          <li onClick={() => changeToFR()}>fr</li>
         </ul>
       </div>
       <button

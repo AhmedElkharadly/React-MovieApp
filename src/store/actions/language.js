@@ -1,4 +1,4 @@
-export const setLang = (payload) => {
+export const setCurrentLangName = (payload) => {
   return {
     type: "SET_LANGUAGE",
     payload,

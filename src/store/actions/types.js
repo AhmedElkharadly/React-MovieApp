@@ -1,0 +1,6 @@
+export const ADD_FAVORITES = "ADD_FAVORITES"
+export const SET_NavObj = "SET_NavObj"
+export const SET_LANGUAGE = "SET_LANGUAGE"
+export const SPLICE_FAVORITES = "SPLICE_FAVORITES"
+export const SET_COUNTER = "SET_COUNTER"
+export const SET_PAGE = "SET_PAGE"
