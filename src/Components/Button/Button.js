@@ -1,7 +1,8 @@
 import "./button.css";
+import { useRef } from "react";
 import React, { useState } from "react";
-import {useRef} from 'react';
-function Button(props,refrence) {
+
+const Button = (props, refrence) => {
   // const [refr ,setRefr] = useState(React.createRef());
   // const [passingRef ,setPassingRefr] = useState(React.createRef());
   // props.passingRef =()=> ({refr})
@@ -27,5 +28,5 @@ function Button(props,refrence) {
       {props.icon}
     </button>
   );
-}
+};
 export default Button;

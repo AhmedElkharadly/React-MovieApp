@@ -1,21 +1,22 @@
 import { SET_NavObj } from "../actions/types";
+import { bookmarkic, moviesIc, homeic } from "../../Components/svg";
 
 const INITIAL_STATE = {
   navArr: [
     {
       navRoute: "/home",
       navName: "Home",
-      icon: "homeic",
+      icon: homeic
     },
     {
       navRoute: "/movies",
       navName: "Movies",
-      icon: "moviesIc",
+      icon: moviesIc,
     },
     {
-      navRoute: "/profile",
-      navName: "profile",
-      icon: "favic",
+      navRoute: "/favorites",
+      navName: "Favorites",
+      icon: bookmarkic,
     },
   ],
 };

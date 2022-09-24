@@ -1,13 +1,14 @@
 import "./App.css";
-import Home from "./Pages/Home/Home";
-import Login from './Pages/LoginPage'
-import React, { Component} from "react";
-import Profile from "./Pages/Profile/Profile";
-import Movies from "./Pages/MoviesPage/Movies";
+import { connect } from "react-redux";
+import React, { Component, Suspense } from "react";
 import NavBar from "./Components/NavBar/NavBar";
-import { Route, Routes } from "react-router-dom";
-import CardDetails from "./Components/CardDetails/CardDetails";
-import {connect} from 'react-redux'
+import RoutesApp from "./Components/Routes/Routes";
+// import Home from "./Pages/Home/Home";
+// import Login from './Pages/LoginPage'
+// import Favorites from "./Pages/Favorites/Favorites";
+// import Movies from "./Pages/MoviesPage/Movies";
+// import CardDetails from "./Components/CardDetails/CardDetails";
+
 
 class App extends Component {
   render() {
@@ -25,17 +26,9 @@ class App extends Component {
           navColor="white"
           logoBR="50px"
           navFSize="22px"
-          />
+        />
         <div className="App">
-              <Routes>
-              <Route path="/"  element={<Home/>} />
-              <Route path="/home" element={<Home/>} />
-              <Route path="/movies"  element={<Movies />} />
-              <Route path="/movies/:id"  element={<CardDetails />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/login" element={<Login/>} />
-              <Route path="*" element={<h1>Error 404 Not Found</h1>} />
-            </Routes>
+          <RoutesApp/>
         </div>
       </>
     );
@@ -43,10 +36,9 @@ class App extends Component {
 }
 
 const mapStoreToProps = (state) => {
-  return{
-    navArr : state.navBar.navArr
-  }
-}
+  return {
+    navArr: state.navBar.navArr,
+  };
+};
 
 export default connect(mapStoreToProps)(App);
-

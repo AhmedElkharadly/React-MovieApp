@@ -1,0 +1,41 @@
+.profileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: white;
+  /* height: 10   0vh; */
+  padding: 100px;
+  padding-top: 130px;
+}
+.favSpan {
+    z-index: 1;
+    position: fixed;
+    top: 65px;
+    left: auto;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.904);
+    box-shadow: 0 0 32px 32px rgba(0, 0, 0, 0.267);
+    border-radius: 32px;
+    font-family: cursive;
+    padding: 10px;
+    display: flex;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+    transition: .5s linear;
+}
+.favSpan:hover{
+  scale: 1.05;
+}
+@media screen and (max-width: 765px) {
+  .favSpan {
+    scale: .8;
+width: 100vw; 
+    /* left: 7 px; */
+}
+  
+}

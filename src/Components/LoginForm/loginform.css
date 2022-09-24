@@ -1,58 +1,51 @@
-.formContainer{
-    /* justify-content: center  ; */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 1s linear;
-    
-
+.formContainer {
+  /* justify-content: center  ; */
+  display: flex;
+  align-items: center;
+  transition: 1s linear;
+  box-sizing: border-box;
+  flex-direction: column;
 }
 
-.emaillable{
-    position: relative;
-    top: 30px;
-    /* left: 4px; */
-    /* background-color: white; */
-    /* margin-left: 10px; */
-    padding: 4px;
-    color: darkgray;
-    transition: .5s;
-    border-radius: 5px;
-    letter-spacing: 2px;
+.emaillable {
+  top: 30px;
+  padding: 4px;
+  transition: 0.5s;
+  color: darkgray;
+  position: relative;
+  border-radius: 5px;
+  letter-spacing: 2px;
 }
 
-.emailInput, .passInput{
-    letter-spacing: 2px;
-    width: 280px;
-    max-width: 50vw  ;
-    min-width: 250px;
-    height: 30px;
-    margin: 5px;
-    text-align: left;
-    padding: 5px;
-    border-radius: 5px;
-    outline-style:hidden;
-    border: 1px solid rgba(73, 35, 0, 0.295);
+.emailInput,
+.passInput {
+  margin: 5px;
+  width: 280px;
+  height: 30px;
+  padding: 5px;
+  max-width: 50vw;
+  min-width: 250px;
+  text-align: left;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  outline-style: hidden;
+  border: 1px solid rgba(73, 35, 0, 0.295);
 }
 
-.emailInput:focus, .passInput:focus{
-    outline-color: rgba(243, 163, 16, 0.938);
-    border: none;
+.emailInput:focus,
+.passInput:focus {
+  border: none;
+  outline-color: rgba(243, 163, 16, 0.938);
 }
-.emailWarr{
-    font-size: 12px;
-    padding-left: 20px;
-    color: rgb(228, 27, 0)
-    
+.emailWarr {
+  font-size: 12px;
+  padding-left: 20px;
+  color: rgb(228, 27, 0);
 }
 
 @media screen and (max-width: 765px) {
-    .formContainer{
+  .formContainer {
+    scale: 0.9;
     transition: 1s linear;
-    scale: .9;
-    }
-
-    
-    
+  }
 }

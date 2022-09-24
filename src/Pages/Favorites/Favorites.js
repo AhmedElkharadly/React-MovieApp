@@ -1,15 +1,17 @@
 import React from "react";
 import Card from "../../Components/Card/Card";
-import "./profile.css";
+import "./favorites.css";
 import { useSelector, useDispatch } from "react-redux";
 import { splcieFavorites } from "../../store/actions/favorites";
 
-const Profile = () => {
+const Favorites = () => {
   const dispatch = useDispatch();
   const favoriteList = useSelector((state) => state.favorite.favorites);
+  const counter = useSelector((state) => state.favorite.counter);
   return (
     <div className="profileContainer">
-      {favoriteList?.map((mov, index) => {
+      <span className="favSpan"> {counter} favorite movies </span>
+      {favoriteList?.map((mov) => {
         return (
           <Card
             HBCC={() => dispatch(splcieFavorites(mov))}
@@ -24,9 +26,9 @@ const Profile = () => {
           />
         );
       })}
-      <div style={{ height: "80vh" }}></div>
+      <div style={{ height: "70vh" }}></div>
     </div>
   );
 };
 
-export default Profile;
+export default Favorites;

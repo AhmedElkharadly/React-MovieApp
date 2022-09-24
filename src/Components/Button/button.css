@@ -1,33 +1,31 @@
-
-
-.rcButton{
-    color: black;
-    background-color: rgb(199, 169, 112, .8);
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    border:none;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+.rcButton {
+  margin: 5px;
+  height: 50px;
+  width: 200px;
+  border: none;
+  display: flex;
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  align-items: center;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  justify-content: center;
+  background-color: rgba(139, 113, 63, 0.637);
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-.rcButton:hover{
-    /* border: .01px solid rgba(0, 0, 0, 0.616); */
-    color: white;
-    background-color: rgba(0, 0, 0, 0.849);
-    cursor: pointer;
-    transition: .3s ;
+.rcButton:hover {
+  /* border: .01px solid rgba(0, 0, 0, 0.616); */
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.849);
 }
 
-.favic{
-    display: flex;
+.favic {
+  display: flex;
 }
-.favicF{
-    fill: red;
+.favicF {
+  fill: red;
 }

@@ -44,7 +44,10 @@
   transition: 0.8s;
   background-color: rgba(56, 56, 56, 0.575) !important;
 }
-
+/* .navIcons{
+  fill: black !important;
+  margin: 10px !important
+} */
 .navLink > span {
   display: flex;
   color: black;
@@ -132,6 +135,7 @@
   }
 
   .resNavSide {
+    /* z-index: 100; */
     top: 60px;
     width: 40vw;
     height: 80vh;

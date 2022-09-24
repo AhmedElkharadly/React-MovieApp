@@ -6,10 +6,9 @@ import Button from "../Button/Button";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentLangName } from "../../store/actions/language";
-
 function NavBar(props) {
-  const [myRef, setMyRef] = useState(React.createRef());
-  const [myDropRef, setMyDropRef] = useState(React.createRef());
+  const myRef = React.createRef();
+  const myDropRef = React.createRef();
 
   const myFunction = (e) => {
     myRef.current.className === "nav"
@@ -74,7 +73,9 @@ function NavBar(props) {
                   fontSize: props.navFSize,
                 }}
               >
-                {navObj.navName}
+                <div style={{margin: "5px"}}>{navObj.icon}</div>
+                <div style={{margin: "5px"}}>{navObj.navName}</div>
+                
               </span>
             </NavLink>
           );
@@ -100,7 +101,7 @@ function NavBar(props) {
           fFamily="cursive"
           bgColor="transparent"
           name={`Lang: ${lang}`}
-          HBC={() => dorpDownLang}
+          HBC={() => dorpDownLang()}
         />
         <ul ref={myDropRef} className="avilableLang">
           <li onClick={() => changeToEN()}>en</li>

@@ -1,22 +1,22 @@
 import axios from "axios";
-import React from "react";
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useState } from "react";
-import Button from "../Button/Button";
-import { favIc } from "../svg";
-import {Link} from 'react-router-dom'
 import "./cardDetails.css";
-import {useSelector} from 'react-redux'
+import { favIc } from "../svg";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { addFavorites, splcieFavorites } from "../../store/actions/favorites";
 
 const CardDetails = () => {
   const [movie, setMovie] = useState({});
-  const [favor, setFavor] = useState(false);
+  // const [favor, setFavor] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
   const id = params.id;
+  const dispatch = useDispatch();
 
-const lang = useSelector((state) => state.pages.currentLangName)
+  const lang = useSelector((state) => state.pages.currentLangName);
+  const favoriteList = useSelector((state) => state.favorite.favorites);
+  const isFav = useSelector((state)=> state.favorite.isFav)
 
   useEffect(() => {
     axios
@@ -36,27 +36,43 @@ const lang = useSelector((state) => state.pages.currentLangName)
   }, []);
 
   const favAdding = (e) => {
-    setFavor((prevState) => ({
-      favor: !prevState.favor,
-    }));
-
-    if (favor.favor) {
-      e.target.style.fill = "red";
-    } else {
-      e.target.style.fill = "white";
-    }
-
-    console.log(favor);
-    console.log(e);
+    // setFavor((prevState) => ({
+    //   favor: !prevState.favor,
+    // }));
+    // if (favor.favor) {
+    //   e.target.style.fill = "red";
+    // } else {
+    //   e.target.style.fill = "white";
+    // }
+    // console.log(favor);
+    // console.log(e);
     // setFavor({favor : !favor})
   };
 
+
+  const addFavMovie = (movie) => {
+    dispatch(addFavorites(movie));
+  };
+  const removeFavourite = (movie) => {
+    dispatch(splcieFavorites(movie));
+  };
+  const handleFav = (e) => {
+    if (favoriteList.includes(movie)) {
+      removeFavourite(movie);
+    } else {
+      // e.target.style.fill == "red"
+      addFavMovie(movie);
+    }
+    // console.log(movie)
+  };
   return (
-    <div 
-    dir={lang == "ar"? "rtl" : "ltr"}
-    className="cardDetailsContainer">
+    <div dir={lang == "ar" ? "rtl" : "ltr"} className="cardDetailsContainer">
       <div className="cardDetailstextContainer">
-        <span className="CardDetailsFavIc" onClick={favAdding}>
+        <span className="CardDetailsFavIc" style={
+          {
+            fill: isFav?.includes(movie?.id)?  "red": "white"
+          }
+          } onClick={handleFav}>
           {favIc}
         </span>
         <h2>{movie.title}</h2>
@@ -74,8 +90,8 @@ const lang = useSelector((state) => state.pages.currentLangName)
           <b>Language:</b>{" "}
           {movie.original_language == "en" ? "English" : "Forign"}
         </p>
-        <a className="moviePage" target="blank"  href={movie.homepage}>
-        To The Movie
+        <a className="moviePage" target="blank" href={movie.homepage}>
+          To The Movie
         </a>
       </div>
       <div className="sideImgeContainer">

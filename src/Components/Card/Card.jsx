@@ -5,15 +5,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addFavorites, splcieFavorites } from "../../store/actions/favorites";
+import { useEffect } from "react";
 
 function Card(props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const favoriteList = useSelector((state) => state.favorite.favorites);
   // const [favor, setFavor] = useState(false);
   // const inFavorites = useSelector((state) => {
   //   return state.favorite;
   // });
-  const dispatch = useDispatch();
+
   const addFavMovie = (moviesData) => {
     dispatch(addFavorites(moviesData));
   };
@@ -22,15 +24,33 @@ function Card(props) {
   };
 
   const handleFav = (moviesData) => {
-    if (favoriteList.includes(props.moviesData))
+    if (favoriteList.includes(props.moviesData)) {
       removeFavourite(props.moviesData);
-    else {
+      // console.log("else");
+    } else {
+      if (favoriteList.length == 0) {
+        addFavMovie(props.moviesData);
+      }
+      removeFavourite(props.moviesData);
+      // console.log("else");
       addFavMovie(props.moviesData);
+      console.log("reading the state empty after cahnging the route");
     }
   };
 
-  const cardBtnHandling = (HBCC) => 
-    typeof(props.HBCC) === 'function' ? props.HBCC() :handleFav() ;
+  const isFav = useSelector((state) => state.favorite.isFav);
+  const favIcFill = () => {
+    if (isFav?.includes(props.moviesData?.id)) return "red";
+    else return "white";
+  };
+
+  const cardBtnHandling = (HBCC) =>
+    typeof props.HBCC === "function" ? props.HBCC() : handleFav();
+
+  const roteToID = () => {
+    navigate(`/movies/${props.id}`);
+  };
+
   // const handleFav = (e) => {
   // setFavor((prevState) => ({
   //   favor: !prevState.favor,
@@ -66,10 +86,6 @@ function Card(props) {
   //   }
   // };
 
-  const roteToID = () => {
-    navigate(`/movies/${props.id}`);
-  };
-
   return (
     <div className="cardContainer0">
       <div
@@ -99,7 +115,7 @@ function Card(props) {
             pad="20px"
             name=""
             icon={favIc}
-            bgColor="rgba(255, 255, 255, 0.496)"
+            bgColor={favIcFill()}
           />
         </div>
       </div>

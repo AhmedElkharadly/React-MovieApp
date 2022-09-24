@@ -1,59 +1,58 @@
 .cardDetailsContainer {
   display: flex;
   height: 100vh;
-  color:white;
+  color: white;
   flex-wrap: wrap;
   padding-top: 90px;
   justify-content: space-evenly;
 }
 .cardDetailstextContainer {
-  background-color: rgba(77, 77, 77, 0.537);
   order: 2;
+  height: 80vh;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  border-radius: 32px;
   margin-top: 0px;
-  height: 80vh;
+  border-radius: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  background-color: rgba(77, 77, 77, 0.537);
 }
 
 .cardDetailstextContainer > p {
+  width: 50vw;
   text-align: left;
   font-size: large;
-  width: 50vw;
   letter-spacing: 1px;
 }
 
-.CardDetailsFavIc{
+.CardDetailsFavIc {
   fill: white;
   cursor: pointer;
-  
 }
 
 .sideImge {
-  display: flex;
-  justify-content: flex-start;
-  height: 80vh;
-  border-radius: 32px;
   scale: 1.05;
+  height: 80vh;
+  display: flex;
+  border-radius: 32px;
+  justify-content: flex-start;
   box-shadow: 0 20px 20px black;
 }
 .sideImge:hover {
   scale: 1.07;
   transition: 0.6s;
 }
-.moviePage{
+.moviePage {
   width: 200px;
   height: 27px;
-  border-radius: 32px;
-  color: aliceblue;
-  background-color: rgba(0, 0, 0, 0.877);
-  text-decoration: none;
   font-size: 20px;
+  color: aliceblue;
+  border-radius: 32px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.877);
 }
-.moviePage:hover{ 
+.moviePage:hover {
   color: black;
   background-color: rgba(240, 255, 255, 0.815);
 }
@@ -63,35 +62,35 @@
 
 @media screen and (max-width: 765px) {
   .cardDetailsContainer {
-    justify-content: center;
-    flex-direction: column;
     align-items: center;
     height: fit-content;
+    flex-direction: column;
+    justify-content: center;
   }
-  
+
   .sideImgeContainer {
     order: 1;
   }
-  
+
   .cardDetailstextContainer {
-    margin-top: -10px;
-    align-items: center;
-    padding-left: 20px;
-    padding-top: 30px;
-    margin-bottom: 20px;
     height: 80vh;
+    margin-top: -10px;
+    padding-top: 30px;
+    padding-left: 20px;
+    align-items: center;
+    margin-bottom: 20px;
   }
-  
+
   .cardDetailstextContainer > p {
-    text-align: center;
-    font-size: large;
     width: 80vw;
+    font-size: large;
+    text-align: center;
     letter-spacing: 1px;
   }
 }
 
 @media screen and (max-width: 400px) {
-    .sideImge{
-        scale: .9;
-    }
+  .sideImge {
+    scale: 0.9;
+  }
 }
